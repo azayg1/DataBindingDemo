@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="user" type="com.androidtest.databinding.data.User"/>
+        <variable name="handlers" type="com.androidtest.databinding.data.MyHandlers"/>
+        <import type="android.view.View"/>
+
+    </data>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context="com.androidtest.databinding.MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/fName"
+        android:layout_height="wrap_content"
+        android:text="@{user.firstName}"
+        android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"
+        android:onClick="@{handlers::onClickFriend}"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{String.valueOf(user.age)}"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/update"
+        android:onClick="@{handlers::onClickFriend}"
+        android:text="Click" />
+
+</LinearLayout>
+</layout>
